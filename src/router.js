@@ -4,20 +4,29 @@ import Home from './views/Home.vue';
 
 Vue.use(Router);
 
+const Clock = () => import(/* webpackChunkName: "clocks" */ './views/Clocks.vue');
+const Drag = () => import(/* webpackChunkName: "drag" */ './views/Drag.vue');
+
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: Home,
-    },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
-    },
+  routes: [{
+    path: '/',
+    name: 'home',
+    component: Home,
+  },
+  {
+    path: '/about',
+    name: 'about',
+    component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
+  },
+  {
+    path: '/clock',
+    name: 'clock',
+    component: Clock,
+  },
+  {
+    path: '/drag',
+    name: 'drag',
+    component: Drag,
+  },
   ],
 });
