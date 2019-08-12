@@ -6,6 +6,7 @@ Vue.use(Router);
 
 const Clock = () => import(/* webpackChunkName: "clocks" */ './views/Clocks.vue');
 const Drag = () => import(/* webpackChunkName: "drag" */ './views/Drag.vue');
+const Video = () => import(/* webpackChunkName: "video" */ './views/Video.vue');
 
 export default new Router({
   routes: [{
@@ -27,6 +28,11 @@ export default new Router({
     path: '/drag',
     name: 'drag',
     component: Drag,
+  },
+  {
+    path: '/video',
+    name: 'video',
+    component: Video,
   },
   ],
 });

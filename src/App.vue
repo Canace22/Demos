@@ -3,7 +3,8 @@
     <div id="nav">
       <router-link to="/">Home</router-link>|
       <router-link to="/drag">Drag</router-link>|
-      <router-link to="/clock">Clock</router-link>
+      <router-link to="/clock">Clock</router-link>|
+      <router-link to="/video">Video</router-link>
     </div>
     <router-view />
   </div>

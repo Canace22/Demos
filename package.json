@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "flv.js": "^1.5.0",
+    "interactjs": "^1.4.0-rc.13",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
     "vuex": "^3.0.1"
