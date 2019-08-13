@@ -37,8 +37,11 @@ export default {
   height: 4.5rem;
   margin: 10px;
   .bt {
-    border: none;
+    padding: 10px 20px;
+    margin: 10px;
     background: rgb(29, 134, 219);
+    color: #fff;
+    border: none;
     outline: none;
   }
 }
