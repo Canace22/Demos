@@ -110,7 +110,6 @@ export default {
 .video-wrap {
   position: relative;
   width: 500px;
-  height: 100%;
   margin: auto;
 }
 .video {

@@ -11,58 +11,101 @@
           v-for="(item,index) in lists"
           :key="index"
           @click="navSelect(index)"
-        >{{item.name}}</section>
+        >
+          <img class="icon" :src="item.icon" />
+          <span>{{item.name}}</span>
+        </section>
       </aside>
       <main class="main">
-        <section class="card" v-for="(content, i) in contents" :key="i">
+        <section
+          class="card"
+          v-for="(content, i) in contents"
+          :key="i"
+          @click="openTab(content.name)"
+        >
           <img class="cover" :src="content.cover" />
           <div class="title">{{content.title}}</div>
         </section>
       </main>
     </article>
+    <article v-show="isTab" class="modal-wrap" @click.self="isTab=false">
+      <section class="modal">
+        <img class="close" :src="closeSrc" @click="isTab=false" />
+        <component
+          v-bind:is="currentTab"
+          :config="config"
+          :fullSrc="fullSrc"
+          :stopSrc="stopSrc"
+          :playSrc="playSrc"
+          :type="type"
+        ></component>
+      </section>
+    </article>
   </div>
 </template>
 
 <script>
+const Clock = () => import('./Clock.vue');
+const Video = () => import('./Video.vue');
+const DragList = () => import('./DragList.vue');
 /* eslint-disable no-unused-expressions */
 export default {
   name: 'HelloWorld',
   props: {
     msg: String,
   },
+  components: {
+    Clock,
+    Video,
+    DragList,
+  },
   data() {
     return {
       lists: [
         {
           name: '媒体',
+          icon: './img/meta-icon.png',
           isActive: 0,
           contents: [
-            { title: '视频播放器', cover: './img/1.jpg' },
-            { title: '音频播放器', cover: './img/2.jpg' },
+            { title: '视频播放器', name: 'Video', cover: './img/1.jpg' },
+            { title: '音频播放器', name: 'Audio', cover: './img/2.jpg' },
           ],
         },
         {
           name: '拖动',
+          icon: './img/drag-icon.png',
           isActive: -1,
           contents: [
-            { title: '列表拖拽', cover: './img/3.png' },
-            { title: '自由拖拽', cover: './img/4.png' },
+            { title: '列表拖拽', name: 'DragList', cover: './img/3.png' },
+            { title: '自由拖拽', name: 'Drag', cover: './img/4.png' },
           ],
         },
         {
           name: '其他',
+          icon: './img/other-icon.png',
           isActive: -1,
           contents: [
-            { title: '时钟', cover: './img/5.jpg' },
-            { title: '计算器', cover: './img/6.jpg' },
-            { title: '猜拳', cover: './img/7.jpg' },
-            { title: '时钟', cover: './img/5.jpg' },
-            { title: '计算器', cover: './img/6.jpg' },
-            { title: '猜拳', cover: './img/7.jpg' },
+            { title: '时钟', name: 'Clock', cover: './img/5.jpg' },
+            { title: '计算器', name: 'Clock', cover: './img/6.jpg' },
+            { title: '猜拳', name: 'Clock', cover: './img/7.jpg' },
+            { title: '时钟', name: 'Clock', cover: './img/5.jpg' },
+            { title: '计算器', name: 'Clock', cover: './img/6.jpg' },
+            { title: '猜拳', name: 'Clock', cover: './img/7.jpg' },
           ],
         },
       ],
       isSelect: 0,
+      currentTab: 'Clock',
+      isTab: false,
+      config: {
+        type: 'mp4',
+        url: 'https://ebag-lab.ebag.readboy.com/phonics/videos/A.mp4',
+      },
+      fullSrc: './img/fullScreen.png',
+      stopSrc: './img/pause.png',
+      playSrc: './img/play.png',
+      type: 2,
+      closeSrc: './img/close.png',
     };
   },
   computed: {
@@ -73,11 +116,12 @@ export default {
       return this.lists[this.isSelect].contents;
     },
   },
-  mounted() {
-
-  },
   methods: {
-    navSelect(index) {
+    openTab(name) {
+      this.currentTab = name;
+      this.isTab = true;
+    },
+    navSelect(index, name) {
       this.isSelect = index;
 
       this.lists.forEach((element, i) => {
@@ -124,6 +168,8 @@ export default {
     height: inherit;
     background: #f3cb81;
     .item {
+      display: flex;
+      align-items: center;
       height: 2.5rem;
       line-height: 2.5rem;
       color: #781e02;
@@ -131,6 +177,9 @@ export default {
       font-weight: 600;
       padding: 10px;
       cursor: pointer;
+      .icon {
+        margin-right: 10px;
+      }
     }
   }
   .main {
@@ -158,6 +207,41 @@ export default {
         width: 100%;
         height: 80%;
       }
+    }
+  }
+}
+.modal-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: #1f1e1e93;
+  .modal {
+    // position: absolute;
+    // top: 0;
+    // bottom: 0;
+    // left: 0;
+    // right: 0;
+    // z-index: 999;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80rem;
+    height: 50rem;
+    background-color: #fbebd7;
+    // outline: 10000px solid #1f1e1e93;
+    margin: auto;
+    border-radius: 8px;
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
     }
   }
 }
