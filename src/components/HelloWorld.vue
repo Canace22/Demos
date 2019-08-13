@@ -67,8 +67,8 @@ export default {
           icon: './img/meta-icon.png',
           isActive: 0,
           contents: [
-            { title: '视频播放器', name: 'Video', cover: './img/1.jpg' },
-            { title: '音频播放器', name: 'Audio', cover: './img/2.jpg' },
+            { title: '视频播放器', name: 'Video', cover: './img/1.png' },
+            { title: '音频播放器', name: 'Audio', cover: './img/2.png' },
           ],
         },
         {
@@ -85,12 +85,12 @@ export default {
           icon: './img/other-icon.png',
           isActive: -1,
           contents: [
-            { title: '时钟', name: 'Clock', cover: './img/5.jpg' },
-            { title: '计算器', name: 'Clock', cover: './img/6.jpg' },
-            { title: '猜拳', name: 'Clock', cover: './img/7.jpg' },
-            { title: '时钟', name: 'Clock', cover: './img/5.jpg' },
-            { title: '计算器', name: 'Clock', cover: './img/6.jpg' },
-            { title: '猜拳', name: 'Clock', cover: './img/7.jpg' },
+            { title: '时钟', name: 'Clock', cover: './img/5.png' },
+            { title: '计算器', name: 'Clock', cover: './img/6.png' },
+            { title: '猜拳', name: 'Clock', cover: './img/7.png' },
+            { title: '时钟', name: 'Clock', cover: './img/5.png' },
+            { title: '计算器', name: 'Clock', cover: './img/6.png' },
+            { title: '猜拳', name: 'Clock', cover: './img/7.png' },
           ],
         },
       ],
@@ -117,6 +117,12 @@ export default {
     },
   },
   methods: {
+    drawImg(e, img) {
+      // const canvas = document.getElementById('myCanvas');
+      const ctx = e.target.getContext('2d');
+      // const img = document.getElementById('scream');
+      ctx.drawImage(img, 10, 10);
+    },
     openTab(name) {
       this.currentTab = name;
       this.isTab = true;
