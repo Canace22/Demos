@@ -48,6 +48,9 @@
 const Clock = () => import('./Clock.vue');
 const Video = () => import('./Video.vue');
 const DragList = () => import('./DragList.vue');
+const FormEl = () => import('./FormEl.vue');
+const PixiDemo = () => import('./PixiDemo.vue');
+const CanvasPath = () => import('./CanvasPath.vue');
 /* eslint-disable no-unused-expressions */
 export default {
   name: 'HelloWorld',
@@ -58,6 +61,9 @@ export default {
     Clock,
     Video,
     DragList,
+    FormEl,
+    PixiDemo,
+    CanvasPath,
   },
   data() {
     return {
@@ -68,7 +74,11 @@ export default {
           isActive: 0,
           contents: [
             { title: '视频播放器', name: 'Video', cover: './img/1.png' },
-            { title: '音频播放器', name: 'Audio', cover: './img/2.png' },
+            {
+              title: '列表控件',
+              name: 'FormEl',
+              cover: './img/2.png',
+            },
           ],
         },
         {
@@ -77,7 +87,15 @@ export default {
           isActive: -1,
           contents: [
             { title: '列表拖拽', name: 'DragList', cover: './img/3.png' },
-            { title: '自由拖拽', name: 'Drag', cover: './img/4.png' },
+            { title: 'Pixi 示例', name: 'PixiDemo', cover: './img/4.png' },
+          ],
+        },
+        {
+          name: '绘图',
+          icon: './img/draw-icon.png',
+          isActive: -1,
+          contents: [
+            { title: 'canvas路径', name: 'CanvasPath', cover: './img/3.png' },
           ],
         },
         {
