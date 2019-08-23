@@ -3,14 +3,15 @@
     <canvas id="canvas" class="canvas" width="483" height="486"></canvas>
     <img style="display:none" ref="img" class="pen" :src="pen" />
     <img style="display:none" ref="leaf" class="leaf" :src="leaf" />
-    <button @click="drawPolygon(padding,scale, poly)">start</button>
+    <button @click="drawPolygon">start</button>
   </div>
 </template>
 
 <script>
 import * as Paper from 'paper';
 import Two from 'two.js';
-import polygonData from '@/assets/js/polygonData.js';
+import polygonData from '@/assets/js/polygonData';
+import drawPath from '@/assets/js/drawPath';
 
 export default {
   name: 'canvasPath',
@@ -18,64 +19,27 @@ export default {
     return {
       leaf: './img/leaf.png',
       pen: './img/pen.png',
-      padding: {
-        left: 100,
-        top: 200,
+      config: {
+        padding: {
+          left: 100,
+          top: 200,
+        },
+        scale: 0.5,
+        path: polygonData.first,
+        color: '#fff',
+        sw: 143,
+        sh: 252,
       },
-      scale: 0.5,
-      poly: polygonData.first,
     };
   },
   mounted() {
-    const { img } = this.$refs;
-    this.drawPolygon(this.padding, this.scale, this.poly, img);
+    this.drawPolygon();
   },
   methods: {
-    drawPolygon(padding, scale, path, handleEl) {
-      const canvas = document.getElementById('canvas');
-      const ctx = canvas.getContext('2d');
-      let t = 0;
-
-      const draw = () => {
-        if (t >= path.length) {
-          clearInterval(clock);
-          return;
-        }
-
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        t += 2;
-        ctx.beginPath();
-        ctx.moveTo(
-          path[0].x * scale + padding.left,
-          path[0].y * scale + padding.top,
-        );
-        if (t > path.length) {
-          t = path.length;
-        }
-        if (handleEl) {
-          ctx.drawImage(
-            handleEl,
-            path[t - 1].x * scale + padding.left,
-            (path[t - 1].y - 240) * scale + padding.top,
-            143 * scale,
-            252 * scale,
-          );
-        }
-
-        for (let i = 0; i < t; i++) {
-          if (path[i]) {
-            ctx.lineTo(
-              path[i].x * scale + padding.left,
-              path[i].y * scale + padding.top,
-            );
-          }
-        }
-        ctx.strokeStyle = '#07B1CA';
-        ctx.lineWidth = 1;
-        ctx.stroke();
-      };
-
-      const clock = setInterval(draw, 50);
+    drawPolygon() {
+      const { img } = this.$refs;
+      this.$set(this.config, 'handleEl', img);
+      drawPath(this.config);
     },
     drawLine() {
       const canvas = document.getElementById('canvas');
