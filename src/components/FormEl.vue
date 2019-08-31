@@ -1,6 +1,12 @@
 <template>
   <div class="formEl-wrap">
-    <drop-down :list="drawDowmList" v-model="selected" @changeItem="changeItem"></drop-down>
+    <drop-down
+      :list="drawDowmList"
+      :isDropDown="isDropDown"
+      v-model="selected"
+      @changeItem="changeItem"
+    ></drop-down>
+    <drop-down :list="drawDowmList" :isIcon="false" v-model="selectedM" @changeItem="changeItemM"></drop-down>
   </div>
 </template>
 
@@ -37,12 +43,16 @@ export default {
         },
       ],
       selected: { id: 1809271612460037, name: '光学' },
+      selectedM: { id: 1809271612460037, name: '光学' },
+      isDropDown: false,
     };
   },
   methods: {
     changeItem(item) {
       this.selected = item;
-      console.log(item);
+    },
+    changeItemM(item) {
+      this.selectedM = item;
     },
   },
 };
@@ -51,7 +61,7 @@ export default {
 <style lang="scss" scoped>
 .formEl-wrap {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
   height: 100%;
