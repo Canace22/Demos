@@ -1,99 +1,91 @@
 <template>
   <div id="wrap" class="wrap">
     <canvas id="canvas" class="canvas" width="483" height="486"></canvas>
-    <img style="display:none" ref="img" class="pen" :src="pen" />
-    <img style="display:none" ref="leaf" class="leaf" :src="leaf" />
-    <button @click="drawPolygon">start</button>
+    <!-- <img style="display:none" ref="img" class="pen" :src="pen" />
+    <img style="display:none" ref="leaf" class="leaf" :src="leaf" />-->
+    <button @click="drawInit">start</button>
   </div>
 </template>
 
 <script>
-import * as Paper from 'paper';
-import Two from 'two.js';
-import polygonData from '@/assets/js/polygonData';
-import drawPath from '@/assets/js/drawPath';
+import polygonData from "@/assets/js/polygonData";
+import drawPath from "@/assets/js/drawPath";
 
 export default {
-  name: 'canvasPath',
+  name: "canvasPath",
   data() {
     return {
-      leaf: './img/leaf.png',
-      pen: './img/pen.png',
+      leaf: "./img/leaf.png",
+      pen: "./img/pen.png",
+      data: [
+        { img: "./img/leaf_area/leafs.png", pos: [] },
+        { img: "./img/leaf_area/pen.png", pos: { x: 0, y: 0 } },
+        { img: "./img/leaf_area/blackBoard.png", pos: { x: 0, y: 0 } }
+      ],
       config: {
         padding: {
           left: 100,
-          top: 200,
+          top: 200
         },
         scale: 0.5,
         path: polygonData.first,
-        color: '#fff',
+        color: "#fff",
         sw: 143,
-        sh: 252,
-      },
+        sh: 252
+      }
     };
   },
   mounted() {
-    this.drawPolygon();
+    // this.drawPolygon();
+    this.drawInit();
   },
   methods: {
     drawPolygon() {
       const { img } = this.$refs;
-      this.$set(this.config, 'handleEl', img);
+      this.$set(this.config, "handleEl", img);
       drawPath(this.config);
     },
-    drawLine() {
-      const canvas = document.getElementById('canvas');
-      const ctx = canvas.getContext('2d');
+    drawInit() {
+      // const canvas = document.getElementById("canvas");
+      for (let i = 0; i < this.data.length - 1; i++) {
+        const wrap = document.getElementById("wrap");
+        const canvas = document.createElement("CANVAS");
+        const ctx = canvas.getContext("2d");
+        const image = new Image(0, 0);
+        console.log(canvas);
+        canvas.setAttribute("width", 483);
+        canvas.setAttribute("height", 486);
+        image.src = this.data[i + 1].img;
+        image.onload = () => {
+          canvas.width = image.naturalWidth;
+          canvas.height = image.naturalHeight;
+          ctx.drawImage(image, 0, 0);
+          ctx.drawImage(image, 0, 0, image.width, image.height);
+        };
+        wrap.appendChild(canvas);
+      }
+      // const canvas = document.createElement("canvas");
+      // const ctx = canvas.getContext("2d");
 
-      canvas.width = canvas.width;
-
-      const draw = () => {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.beginPath();
-        ctx.moveTo(0, 0);
-        ctx.lineTo(15, 75);
-        ctx.lineTo(45, 15);
-        ctx.stroke();
-
-        ctx.translate(0, 5);
-
-        window.requestAnimationFrame(draw);
-      };
-      ctx.restore();
-      setInterval(() => {
-        window.requestAnimationFrame(draw);
-      }, 2000);
-    },
-    drawRect() {
-      const elem = document.getElementById('wrap');
-      const two = new Two({ width: 285, height: 200 }).appendTo(elem);
-
-      const circle = two.makeCircle(-70, 0, 50);
-      const rect = two.makeRectangle(70, 0, 100, 100);
-      circle.fill = '#FF8000';
-      rect.fill = 'rgba(0, 200, 255, 0.75)';
-
-      const group = two.makeGroup(circle, rect);
-      group.translation.set(two.width / 2, two.height / 2);
-      group.scale = 0;
-      group.noStroke();
-
-      // Bind a function to scale and rotate the group
-      // to the animation loop.
-      two
-        .bind('update', (frameCount) => {
-          // This code is called everytime two.update() is called.
-          // Effectively 60 times per second.
-          if (group.scale > 0.9999) {
-            group.scale = group.rotation = 0;
-          }
-          const t = (1 - group.scale) * 0.125;
-          group.scale += t;
-          group.rotation += t * 4 * Math.PI;
-        })
-        .play(); // Finally, start the animation loop
-    },
-  },
+      // const image = new Image(0, 0);
+      // image.src = this.data[2].img;
+      // image.onload = () => {
+      //   canvas.width = image.naturalWidth;
+      //   canvas.height = image.naturalHeight;
+      //   ctx.drawImage(image, 0, 0);
+      //   ctx.drawImage(image, 0, 0, image.width, image.height);
+      // };
+      // const img = new Image(0, 0);
+      // img.style.display = "none";
+      // img.src = this.data[1].img;
+      // img.onload = () => {
+      //   canvas.width = img.naturalWidth;
+      //   canvas.height = img.naturalHeight;
+      //   ctx.drawImage(img, 0, 0);
+      //   ctx.drawImage(img, 0, 0, img.width, img.height);
+      // };
+    }
+  }
 };
 </script>
 
@@ -107,6 +99,7 @@ export default {
   .canvas {
     width: 483;
     height: 486;
+    transform: scale(0.5);
     transition: all 0.2s linear;
   }
   .pen {
