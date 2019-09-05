@@ -77,7 +77,6 @@ export default {
   min-width: 9.625rem;
   background: #ffffff;
   padding: 5px 0;
-  transition: all 0.5s linear;
   .dropDown-item {
     height: 2.125rem;
     line-height: 2.125rem;
@@ -109,5 +108,21 @@ export default {
 }
 .isDropDown {
   visibility: visible;
+  animation: fadeInDown 0.1s linear;
+}
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -10%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInDown {
+  animation-name: fadeInDown;
 }
 </style>

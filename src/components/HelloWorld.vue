@@ -51,6 +51,9 @@ const DragList = () => import('./DragList.vue');
 const FormEl = () => import('./FormEl.vue');
 const PixiDemo = () => import('./PixiDemo.vue');
 const CanvasPath = () => import('./CanvasPath.vue');
+const Container = () => import('./pixi/Container.vue');
+const DrawMoveShape = () => import('./pixi/DrawMoveShape.vue');
+const PlaceHolder = () => import('./PlaceHolder.vue');
 /* eslint-disable no-unused-expressions */
 export default {
   name: 'HelloWorld',
@@ -64,6 +67,9 @@ export default {
     FormEl,
     PixiDemo,
     CanvasPath,
+    Container,
+    DrawMoveShape,
+    PlaceHolder,
   },
   data() {
     return {
@@ -87,15 +93,24 @@ export default {
           isActive: -1,
           contents: [
             { title: '列表拖拽', name: 'DragList', cover: './img/3.png' },
-            { title: 'Pixi 示例', name: 'PixiDemo', cover: './img/4.png' },
           ],
         },
         {
-          name: '绘图',
+          name: 'canvas绘图',
           icon: './img/draw-icon.png',
           isActive: -1,
           contents: [
             { title: 'canvas路径', name: 'CanvasPath', cover: './img/3.png' },
+            { title: 'Pixi 示例', name: 'PixiDemo', cover: './img/4.png' },
+          ],
+        },
+        {
+          name: 'pixijs 绘图',
+          icon: './img/draw-icon.png',
+          isActive: -1,
+          contents: [
+            { title: 'container', name: 'Container', cover: './img/1.png' },
+            { title: '画动态图', name: 'DrawMoveShape', cover: './img/2.png' },
           ],
         },
         {
@@ -103,7 +118,11 @@ export default {
           icon: './img/other-icon.png',
           isActive: -1,
           contents: [
-            { title: '时钟', name: 'Clock', cover: './img/5.png' },
+            {
+              title: 'div 模拟 input placeholder',
+              name: 'PlaceHolder',
+              cover: './img/5.png',
+            },
             { title: '计算器', name: 'Clock', cover: './img/6.png' },
             { title: '猜拳', name: 'Clock', cover: './img/7.png' },
             { title: '时钟', name: 'Clock', cover: './img/5.png' },
