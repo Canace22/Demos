@@ -2,6 +2,18 @@
   <div class="container">
     <header class="header">
       <h1 class="title">Demos</h1>
+      <nav class="nav">
+        <section
+          class="item"
+          :class="{isActive:item.isActive === index}"
+          v-for="(item,index) in lists"
+          :key="index"
+          @click="navSelect(index)"
+        >
+          <img class="icon" :src="item.icon" />
+          <span>{{item.name}}</span>
+        </section>
+      </nav>
     </header>
     <article :style="{height:h}" class="article">
       <aside class="aside">
@@ -26,6 +38,7 @@
           <img class="cover" :src="content.cover" />
           <div class="title">{{content.title}}</div>
         </section>
+        <section class="none"></section>
       </main>
     </article>
     <article v-show="isTab" class="modal-wrap" @click.self="isTab=false">
@@ -49,8 +62,9 @@ const Clock = () => import("./Clock.vue");
 const Video = () => import("./Video.vue");
 const DragList = () => import("./DragList.vue");
 const FormEl = () => import("./FormEl.vue");
-const PixiDemo = () => import("./PixiDemo.vue");
-const CanvasPath = () => import("./CanvasPath.vue");
+const Container = () => import("./pixi/Container.vue");
+const DrawMoveShape = () => import("./pixi/DrawMoveShape.vue");
+const PlaceHolder = () => import("./PlaceHolder.vue");
 /* eslint-disable no-unused-expressions */
 export default {
   name: "HelloWorld",
@@ -62,8 +76,9 @@ export default {
     Video,
     DragList,
     FormEl,
-    PixiDemo,
-    CanvasPath
+    Container,
+    DrawMoveShape,
+    PlaceHolder
   },
   data() {
     return {
@@ -86,16 +101,24 @@ export default {
           icon: "./img/drag-icon.png",
           isActive: -1,
           contents: [
-            { title: "列表拖拽", name: "DragList", cover: "./img/3.png" },
-            { title: "Pixi 示例", name: "PixiDemo", cover: "./img/4.png" }
+            { title: "列表拖拽", name: "DragList", cover: "./img/3.png" }
           ]
         },
         {
-          name: "绘图",
+          name: "canvas绘图",
           icon: "./img/draw-icon.png",
           isActive: -1,
           contents: [
-            { title: "canvas路径", name: "CanvasPath", cover: "./img/3.png" }
+            {
+              title: "pixi-container",
+              name: "Container",
+              cover: "./img/4.png"
+            },
+            {
+              title: "pixi-画动态图",
+              name: "DrawMoveShape",
+              cover: "./img/5.png"
+            }
           ]
         },
         {
@@ -103,12 +126,13 @@ export default {
           icon: "./img/other-icon.png",
           isActive: -1,
           contents: [
-            { title: "时钟", name: "Clock", cover: "./img/5.png" },
-            { title: "计算器", name: "Clock", cover: "./img/6.png" },
-            { title: "猜拳", name: "Clock", cover: "./img/7.png" },
-            { title: "时钟", name: "Clock", cover: "./img/5.png" },
-            { title: "计算器", name: "Clock", cover: "./img/6.png" },
-            { title: "猜拳", name: "Clock", cover: "./img/7.png" }
+            {
+              title: "div 模拟 input placeholder",
+              name: "PlaceHolder",
+              cover: "./img/1.png"
+            },
+
+            { title: "时钟", name: "Clock", cover: "./img/4.png" }
           ]
         }
       ],
@@ -136,9 +160,7 @@ export default {
   },
   methods: {
     drawImg(e, img) {
-      // const canvas = document.getElementById('myCanvas');
       const ctx = e.target.getContext("2d");
-      // const img = document.getElementById('scream');
       ctx.drawImage(img, 10, 10);
     },
     openTab(name) {
@@ -165,8 +187,8 @@ export default {
   src: url(../../public/font/font.ttf);
 }
 .container {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
 }
 .header {
   width: 100%;
@@ -175,16 +197,18 @@ export default {
   background: #e9af40;
   .title {
     text-align: center;
-    width: 200px;
+    width: 12.5rem;
     font-family: title;
     color: #781e02;
-    padding: 0 10px;
+    padding: 0 0.625rem;
     margin: 0;
+  }
+  .nav {
+    display: none;
   }
 }
 .article {
   width: 100%;
-  // background: rgb(199, 191, 191);
   .aside {
     position: absolute;
     left: 0;
@@ -199,7 +223,7 @@ export default {
       color: #781e02;
       font-size: 1.25rem;
       font-weight: 600;
-      padding: 10px;
+      padding: 0.625rem;
       cursor: pointer;
       .icon {
         margin-right: 10px;
@@ -211,13 +235,14 @@ export default {
     justify-content: space-around;
     flex-wrap: wrap;
     height: 100%;
-    padding: 20px;
+    padding: 1.25rem;
     margin-left: 20%;
+    overflow-y: auto;
     .card {
-      width: 400px;
-      height: 300px;
+      width: 25rem;
+      height: 18.75rem;
       background: #fff;
-      margin: 10px;
+      margin: 0.625rem;
       .title {
         display: flex;
         justify-content: center;
@@ -232,6 +257,10 @@ export default {
         height: 80%;
       }
     }
+    .none {
+      width: 25rem;
+      height: 0;
+    }
   }
 }
 .modal-wrap {
@@ -245,22 +274,13 @@ export default {
   height: 100%;
   background: #1f1e1e93;
   .modal {
-    // position: absolute;
-    // top: 0;
-    // bottom: 0;
-    // left: 0;
-    // right: 0;
-    // z-index: 999;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    // width: 80rem;
-    // height: 50rem;
     width: 80vw;
-    height: 90vh;
+    height: 95vh;
     background-color: #fbebd7;
-    // outline: 10000px solid #1f1e1e93;
     margin: auto;
     border-radius: 8px;
     .close {
@@ -273,5 +293,40 @@ export default {
 }
 .isActive {
   background-color: #fbebd7 !important;
+}
+@media (max-width: 1280px) {
+  .aside {
+    display: none;
+  }
+  .main {
+    width: 100%;
+    margin-left: 0 !important;
+    margin: auto;
+  }
+  .modal {
+    height: 85vh !important;
+  }
+  .header {
+    display: flex;
+    .nav {
+      display: flex !important;
+      align-items: center;
+      height: 100%;
+      margin: auto;
+      .item {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        color: #781e02;
+        font-size: 1.25rem;
+        font-weight: 600;
+        padding: 0 1.25rem;
+        cursor: pointer;
+        .icon {
+          display: none;
+        }
+      }
+    }
+  }
 }
 </style>

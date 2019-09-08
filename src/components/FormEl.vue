@@ -2,7 +2,6 @@
   <div class="formEl-wrap">
     <drop-down
       :list="drawDowmList"
-      :isDropDown="isDropDown"
       v-model="selected"
       @changeItem="changeItem"
     ></drop-down>

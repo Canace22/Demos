@@ -36,30 +36,30 @@
 
 <script>
 export default {
-  name: 'list',
+  name: "list",
   data() {
     return {
       list1: [
-        '单选题',
-        '多选题',
-        '单项填空',
-        '多项填空',
-        '星级评价',
-        '数值评价',
+        "单选题",
+        "多选题",
+        "单项填空",
+        "多项填空",
+        "星级评价",
+        "数值评价"
       ],
       list2: [],
       types: [
-        { name: '单选题' },
-        { name: '多选题' },
-        { name: '单项填空题' },
-        { name: '多项题' },
-        { name: '星级评价题' },
-        { name: '数值评价题' },
+        { name: "单选题" },
+        { name: "多选题" },
+        { name: "单项填空题" },
+        { name: "多项题" },
+        { name: "星级评价题" },
+        { name: "数值评价题" }
       ],
       ids: 0,
       isLabel: false,
       index: 0,
-      dragImg: './img/drag.png',
+      dragImg: "./img/drag.png"
     };
   },
   methods: {
@@ -70,7 +70,7 @@ export default {
       }
     },
     end(index, e, list) {
-      e.target.style.opacity = '';
+      e.target.style.opacity = "";
       if (list) {
         const temp = this.list2[this.ids].name;
 
@@ -99,10 +99,10 @@ export default {
     drop(index, e) {
       this.isLabel = false;
       e.preventDefault();
-      e.target.classList.remove('slideInUp');
-      e.target.classList.add('slideInUp');
-    },
-  },
+      e.target.classList.remove("slideInUp");
+      e.target.classList.add("slideInUp");
+    }
+  }
 };
 </script>
 
@@ -115,10 +115,10 @@ export default {
   .list2 {
     width: 30%;
     height: 100%;
-    min-height: 300px;
+    min-height: 18.75rem;
     border: 1px solid orange;
     .list-item {
-      height: 100px;
+      height: 6.25rem;
       cursor: pointer;
       &:hover {
         background-color: orange;
