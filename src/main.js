@@ -1,12 +1,28 @@
 import Vue from 'vue';
 import App from './App.vue';
-import router from './router';
-import store from './store';
 
 Vue.config.productionTip = false;
 
-new Vue({
-  router,
-  store,
+// new Vue({
+// router,
+// store,
+//   render: h => h(App),
+// }).$mount('#app');
+const app = new Vue({
+  components: {
+    App,
+  },
   render: h => h(App),
-}).$mount('#app');
+});
+
+window.mountApp = () => {
+  app.$mount('#app');
+};
+
+if (process.env.NODE_ENV === 'production') {
+  if (window.STYLE_READY) {
+    window.mountApp();
+  }
+} else {
+  window.mountApp();
+}
