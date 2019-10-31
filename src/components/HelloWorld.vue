@@ -28,7 +28,7 @@
         </section>
       </main>
     </article>
-    <article v-show="isTab" class="modal-wrap" @click.self="isTab=false">
+    <article v-if="isTab" class="modal-wrap" @click.self="isTab=false">
       <section class="modal">
         <img class="close" :src="closeSrc" @click="isTab=false" />
         <component
@@ -75,9 +75,20 @@ export default {
     return {
       lists: [
         {
+          name: 'canvas绘图',
+          icon: './img/draw-icon.png',
+          isActive: 0,
+          contents: [
+            { title: 'canvas路径', name: 'CanvasPath', cover: './img/3.png' },
+            { title: 'Pixi 示例', name: 'PixiDemo', cover: './img/4.png' },
+            { title: 'container', name: 'Container', cover: './img/1.png' },
+            { title: '画动态图', name: 'DrawMoveShape', cover: './img/2.png' },
+          ],
+        },
+        {
           name: '媒体',
           icon: './img/meta-icon.png',
-          isActive: 0,
+          isActive: -1,
           contents: [
             { title: '视频播放器', name: 'Video', cover: './img/1.png' },
             {
@@ -93,24 +104,6 @@ export default {
           isActive: -1,
           contents: [
             { title: '列表拖拽', name: 'DragList', cover: './img/3.png' },
-          ],
-        },
-        {
-          name: 'canvas绘图',
-          icon: './img/draw-icon.png',
-          isActive: -1,
-          contents: [
-            { title: 'canvas路径', name: 'CanvasPath', cover: './img/3.png' },
-            { title: 'Pixi 示例', name: 'PixiDemo', cover: './img/4.png' },
-          ],
-        },
-        {
-          name: 'pixijs 绘图',
-          icon: './img/draw-icon.png',
-          isActive: -1,
-          contents: [
-            { title: 'container', name: 'Container', cover: './img/1.png' },
-            { title: '画动态图', name: 'DrawMoveShape', cover: './img/2.png' },
           ],
         },
         {
@@ -154,12 +147,6 @@ export default {
     },
   },
   methods: {
-    drawImg(e, img) {
-      // const canvas = document.getElementById('myCanvas');
-      const ctx = e.target.getContext('2d');
-      // const img = document.getElementById('scream');
-      ctx.drawImage(img, 10, 10);
-    },
     openTab(name) {
       this.currentTab = name;
       this.isTab = true;

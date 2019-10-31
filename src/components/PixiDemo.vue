@@ -3,44 +3,24 @@
 </template>
 
 <script>
-import * as PIXI from 'pixi.js';
+import CreateDragThing from 'assets/js/dragging';
 
 export default {
   name: 'pixi',
-  created() {
-    let type = 'WebGL';
-    if (!PIXI.utils.isWebGLSupported()) {
-      type = 'canvas';
-    }
-    PIXI.utils.sayHello(type);
-    setTimeout(() => {
-      this.createPixi();
-    }, 1000);
+  mounted() {
+    this.createPixi();
   },
   methods: {
     createPixi() {
       const el = document.getElementById('leaf-wrap');
-
-      // Create a Pixi Application
-      const app = new PIXI.Application({
-        width: 256,
-        height: 256,
-        antialias: true,
-        transparent: false,
-        resolution: 1,
+      const cat = new CreateDragThing({
+        dom: el,
+        img: ['./img/cat.png', './img/cat.png', './img/cat.png'],
+        pos: [{ x: 183, y: 185 }, { x: 283, y: 285 }, { x: 383, y: 385 }],
+        dragData: [0, 1],
+        bg: 0x000,
       });
-
-      const setup = () => {
-        // Create the cat sprite
-        const cat = new PIXI.Sprite(
-          PIXI.loader.resources['./img/leafBoard.png'].texture,
-        );
-        app.stage.addChild(cat);
-      };
-
-      el.appendChild(app.view);
-
-      PIXI.loader.load(setup);
+      cat.initDrag();
     },
   },
 };

@@ -8,9 +8,26 @@ export default function drawPolygon(config) {
   ];
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+  const drawInit = () => {
+    for (let i = 0; i < 6; i++) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(
+        handleEl,
+        padding.left + config.initPos.x + i,
+        padding.top + config.initPos.y + i,
+        sw * scale,
+        sh * scale,
+      );
+      // window.requestAnimationFrame(drawInit);
+    }
+  };
+
   const draw = () => {
     if (t >= config.path.length) {
       clearInterval(clock);
+      if (handleEl) {
+        window.requestAnimationFrame(drawInit);
+      }
       return;
     }
 
@@ -24,15 +41,6 @@ export default function drawPolygon(config) {
     if (t > path.length) {
       t = path.length;
     }
-    if (handleEl) {
-      ctx.drawImage(
-        handleEl,
-        path[t - 1].x * scale + padding.left,
-        (path[t - 1].y - 240) * scale + padding.top,
-        sw * scale,
-        sh * scale,
-      );
-    }
 
     for (let i = 0; i < t; i++) {
       if (config.path[i]) {
@@ -45,6 +53,15 @@ export default function drawPolygon(config) {
     ctx.strokeStyle = color || '#07B1CA';
     ctx.lineWidth = 3;
     ctx.stroke();
+    if (handleEl) {
+      ctx.drawImage(
+        handleEl,
+        path[t - 1].x * scale + padding.left,
+        (path[t - 1].y - 240) * scale + padding.top,
+        sw * scale,
+        sh * scale,
+      );
+    }
   };
 
   const clock = setInterval(draw, 50);
