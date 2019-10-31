@@ -38,10 +38,10 @@
           <img class="cover" :src="content.cover" />
           <div class="title">{{ content.title }}</div>
         </section>
-        <section class="none"></section>
+        <section class="none" v-for="(item, index) in 2" :key="index + 'aaa'"></section>
       </main>
     </article>
-    <article v-show="isTab" class="modal-wrap" @click.self="isTab = false">
+    <article v-if="isTab" class="modal-wrap" @click.self="isTab = false">
       <section class="modal">
         <img class="close" :src="closeSrc" @click="isTab = false" />
         <component
@@ -66,6 +66,8 @@ const Container = () => import('./pixi/Container.vue');
 const DrawMoveShape = () => import('./pixi/DrawMoveShape.vue');
 const PlaceHolder = () => import('./PlaceHolder.vue');
 const NewSprite = () => import('./NewSprite.vue');
+const PixiDemo = () => import('./PixiDemo.vue');
+const Battary = () => import('./animate/Battary');
 /* eslint-disable no-unused-expressions */
 export default {
   name: 'HelloWorld',
@@ -81,21 +83,45 @@ export default {
     DrawMoveShape,
     PlaceHolder,
     NewSprite,
+    PixiDemo,
+    Battary,
   },
   data() {
     return {
       lists: [
         {
-          name: '媒体',
-          icon: './img/meta-icon.png',
+          name: 'canvas绘图',
+          icon: './img/draw-icon.png',
           isActive: 0,
           contents: [
-            { title: '视频播放器', name: 'Video', cover: './img/1.png' },
             {
-              title: '列表控件',
-              name: 'FormEl',
-              cover: './img/2.png',
+              title: 'pixi-container',
+              name: 'Container',
+              cover: './img/rotateCat.png',
             },
+            {
+              title: 'pixi-画动态图',
+              name: 'DrawMoveShape',
+              cover: './img/rotateRoly.png',
+            },
+            {
+              title: '合成雪碧图',
+              name: 'NewSprite',
+              cover: './img/newSprite.png',
+            },
+            {
+              title: 'canvas 拖动',
+              name: 'PixiDemo',
+              cover: './img/dragCat.png',
+            },
+          ],
+        },
+        {
+          name: '媒体',
+          icon: './img/meta-icon.png',
+          isActive: -1,
+          contents: [
+            { title: '视频播放器', name: 'Video', cover: './img/1.png' },
           ],
         },
         {
@@ -104,28 +130,6 @@ export default {
           isActive: -1,
           contents: [
             { title: '列表拖拽', name: 'DragList', cover: './img/3.png' },
-          ],
-        },
-        {
-          name: 'canvas绘图',
-          icon: './img/draw-icon.png',
-          isActive: -1,
-          contents: [
-            {
-              title: 'pixi-container',
-              name: 'Container',
-              cover: './img/4.png',
-            },
-            {
-              title: 'pixi-画动态图',
-              name: 'DrawMoveShape',
-              cover: './img/5.png',
-            },
-            {
-              title: '合成雪碧图',
-              name: 'NewSprite',
-              cover: './img/4.png',
-            },
           ],
         },
         {
@@ -138,8 +142,13 @@ export default {
               name: 'PlaceHolder',
               cover: './img/1.png',
             },
-
+            {
+              title: '列表控件',
+              name: 'FormEl',
+              cover: './img/2.png',
+            },
             { title: '时钟', name: 'Clock', cover: './img/4.png' },
+            { title: 'battary', name: 'Battary', cover: './img/4.png' },
           ],
         },
       ],
