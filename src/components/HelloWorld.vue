@@ -97,11 +97,15 @@
 				lists: [
 					{
 						name: "动画",
-						icon: "./img/other-icon.png",
+						icon: "./img/animation-2d.png",
 						isActive: 0,
 						contents: [
-							{ title: "动态绳索", name: "Easing", cover: "./img/4.png" },
-							{ title: "battary", name: "Battary", cover: "./img/4.png" }
+							{
+								title: "动态绳索",
+								name: "Easing",
+								cover: "./img/strokeAnimate.png"
+							},
+							{ title: "battary", name: "Battary", cover: "./img/countAnimation.png" }
 						]
 					},
 					{
@@ -163,7 +167,6 @@
 								cover: "./img/2.png"
 							},
 							{ title: "时钟", name: "Clock", cover: "./img/4.png" },
-							{ title: "battary", name: "Battary", cover: "./img/4.png" }
 						]
 					}
 				],
@@ -274,6 +277,7 @@
 				height: 18.75rem;
 				background: #fff;
 				margin: 0.625rem;
+				box-shadow: 0px 0px 15px rgba(19, 18, 18, 0.171);
 				.title {
 					display: flex;
 					justify-content: center;
