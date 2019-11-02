@@ -4,7 +4,13 @@ export default function drawPolygon(config) {
   const ctx = canvas.getContext('2d');
   let t = 0;
   const [scale, path, color, sw, sh, padding, handleEl] = [
-    config.scale, config.path, config.color, config.sw, config.sh, config.padding, config.handleEl,
+    config.scale,
+    config.path,
+    config.color,
+    config.sw,
+    config.sh,
+    config.padding,
+    config.handleEl,
   ];
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -34,10 +40,7 @@ export default function drawPolygon(config) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     t += 2;
     ctx.beginPath();
-    ctx.moveTo(
-      path[0].x * scale + padding.left,
-      path[0].y * scale + padding.top,
-    );
+    ctx.moveTo(path[0].x * scale + padding.left, path[0].y * scale + padding.top);
     if (t > path.length) {
       t = path.length;
     }

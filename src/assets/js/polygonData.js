@@ -1625,4 +1625,5 @@ const polygonData = {
 	],
 };
 
-export default polygonData;
+// export default polygonData;
+module.exports = polygonData;
