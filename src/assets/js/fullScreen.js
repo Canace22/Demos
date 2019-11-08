@@ -13,11 +13,11 @@ export function requestFullscreens(el) {
 
 function fullscreenElement() {
   return (
-    document.fullscreenElement
-    || document.webkitFullscreenElement
-    || document.msFullscreenElement
-    || document.mozFullScreenElement
-    || null
+    document.fullscreenElement ||
+    document.webkitFullscreenElement ||
+    document.msFullscreenElement ||
+    document.mozFullScreenElement ||
+    null
   );
 }
 

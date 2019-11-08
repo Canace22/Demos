@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import DropDown from './common/dropDown.vue';
+import DropDown from 'components/common/dropDown.vue';
 
 export default {
   name: 'formEl',

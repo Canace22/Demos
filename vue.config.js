@@ -33,7 +33,7 @@ module.exports = {
     config.resolve.alias
       .set('@$', resolve('src'))
       .set('components', resolve('src/components'))
-      .set('views', resolve('src/views'))
+      .set('pages', resolve('src/pages'))
       .set('assets', resolve('src/assets'));
   },
 };

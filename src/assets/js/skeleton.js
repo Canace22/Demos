@@ -1,6 +1,5 @@
 import Vue from 'vue';
-import Skeleton from '../../components/Skeleton.vue';
-// import Skeleton from '../../components/skeleton-box.vue';
+import Skeleton from 'components/skeleton/skeleton.vue';
 
 export default new Vue({
   components: {

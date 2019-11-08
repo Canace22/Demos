@@ -62,114 +62,18 @@
 </template>
 
 <script>
-	const Clock = () => import("./Clock.vue");
-	const Video = () => import("./Video.vue");
-	const DragList = () => import("./DragList.vue");
-	const FormEl = () => import("./FormEl.vue");
-	const Container = () => import("./pixi/Container.vue");
-	const DrawMoveShape = () => import("./pixi/DrawMoveShape.vue");
-	const PlaceHolder = () => import("./PlaceHolder.vue");
-	const NewSprite = () => import("./NewSprite.vue");
-	const PixiDemo = () => import("./PixiDemo.vue");
-	const Battary = () => import("./animate/Battary");
-	const Easing = () => import("./animate/Easing");
+	import config from "assets/js/config";
+	import components from "assets/js/getImport";
 	/* eslint-disable no-unused-expressions */
 	export default {
 		name: "HelloWorld",
 		props: {
 			msg: String
 		},
-		components: {
-			Clock,
-			Video,
-			DragList,
-			FormEl,
-			Container,
-			DrawMoveShape,
-			PlaceHolder,
-			NewSprite,
-			PixiDemo,
-			Battary,
-			Easing
-		},
+		components,
 		data() {
 			return {
-				lists: [
-					{
-						name: "动画",
-						icon: "./img/animation-2d.png",
-						isActive: 0,
-						contents: [
-							{
-								title: "动态绳索",
-								name: "Easing",
-								cover: "./img/strokeAnimate.png"
-							},
-							{ title: "battary", name: "Battary", cover: "./img/countAnimation.png" }
-						]
-					},
-					{
-						name: "canvas绘图",
-						icon: "./img/draw-icon.png",
-						isActive: -1,
-						contents: [
-							{
-								title: "pixi-container",
-								name: "Container",
-								cover: "./img/rotateCat.png"
-							},
-							{
-								title: "pixi-画动态图",
-								name: "DrawMoveShape",
-								cover: "./img/rotateRoly.png"
-							},
-							{
-								title: "合成雪碧图",
-								name: "NewSprite",
-								cover: "./img/newSprite.png"
-							},
-							{
-								title: "canvas 拖动",
-								name: "PixiDemo",
-								cover: "./img/dragCat.png"
-							}
-						]
-					},
-					{
-						name: "媒体",
-						icon: "./img/meta-icon.png",
-						isActive: -1,
-						contents: [
-							{ title: "视频播放器", name: "Video", cover: "./img/1.png" }
-						]
-					},
-					{
-						name: "拖动",
-						icon: "./img/drag-icon.png",
-						isActive: -1,
-						contents: [
-							{ title: "列表拖拽", name: "DragList", cover: "./img/3.png" }
-						]
-					},
-					{
-						name: "其他",
-						icon: "./img/other-icon.png",
-						isActive: -1,
-						contents: [
-							{
-								title: "div 模拟 input placeholder",
-								name: "PlaceHolder",
-								cover: "./img/1.png"
-							},
-							{
-								title: "列表控件",
-								name: "FormEl",
-								cover: "./img/2.png"
-							},
-							{ title: "时钟", name: "Clock", cover: "./img/4.png" },
-						]
-					}
-				],
+				lists: config,
 				isSelect: 0,
 				currentTab: "Clock",
 				isTab: false,
@@ -193,10 +97,6 @@
 			}
 		},
 		methods: {
-			drawImg(e, img) {
-				const ctx = e.target.getContext("2d");
-				ctx.drawImage(img, 10, 10);
-			},
 			openTab(name) {
 				this.currentTab = name;
 				this.isTab = true;

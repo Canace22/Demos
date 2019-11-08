@@ -3,11 +3,6 @@ import App from './App.vue';
 
 Vue.config.productionTip = false;
 
-// new Vue({
-// router,
-// store,
-//   render: h => h(App),
-// }).$mount('#app');
 const app = new Vue({
   components: {
     App,
@@ -20,11 +15,3 @@ window.mountApp = () => {
 };
 
 window.mountApp();
-
-// if (process.env.NODE_ENV === 'production') {
-//   if (window.STYLE_READY) {
-//     window.mountApp();
-//   }
-// } else {
-//   window.mountApp();
-// }
