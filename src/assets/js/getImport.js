@@ -12,6 +12,9 @@ const components = {
   Easing: () => import('components/animate/Easing'),
   ColorBoard: () => import('components/cg/color-board'),
   Ball: () => import('components/cg/ball'),
+  PixiInit: () => import('components/pixi/hello-world'),
+  PixiSprite: () => import('components/pixi/sprite-from-tileset'),
+  PixiData: () => import('components/pixi/sprite-from-data'),
 };
 
 export default components;
