@@ -1,18 +1,45 @@
 const config = [
   {
-    name: 'canvas绘图',
-    icon: './img/line.svg',
+    name: '3D',
+    icon: './img/3D.svg',
     isActive: 0,
     contents: [
       {
-        title: 'pixi 使用数据渲染图片',
-        name: 'PixiData',
-        cover: './img/cover/hello.png',
+        title: '球体（1）',
+        name: 'Sphere',
+        cover: './img/cover/colorful.png',
       },
       {
-        title: 'pixi 使用雪碧图',
+        title: '调色板',
+        name: 'ColorBoard',
+        cover: './img/cover/colorful.png',
+      },
+      {
+        title: '球体',
+        name: 'Ball',
+        cover: './img/cover/ball-cover.png',
+      },
+    ],
+  },
+  {
+    name: 'canvas绘图',
+    icon: './img/line.svg',
+    isActive: -1,
+    contents: [
+      {
+        title: '果实的体积',
+        name: 'LeafVolumn',
+        cover: './img/cover/leaf-volume.png',
+      },
+      {
+        title: 'pixi 使用数据渲染图片',
+        name: 'PixiData',
+        cover: './img/cover/pixi-data.png',
+      },
+      {
+        title: '移动的火箭',
         name: 'PixiSprite',
-        cover: './img/cover/hello.png',
+        cover: './img/cover/pixi-sprite.png',
       },
       {
         title: 'pixi hello world',
@@ -38,23 +65,6 @@ const config = [
         title: 'canvas 拖动',
         name: 'PixiDemo',
         cover: './img/cover/dragCat.png',
-      },
-    ],
-  },
-  {
-    name: '计算图形学',
-    icon: './img/3D.svg',
-    isActive: -1,
-    contents: [
-      {
-        title: '调色板',
-        name: 'ColorBoard',
-        cover: './img/cover/colorful.png',
-      },
-      {
-        title: '球体',
-        name: 'Ball',
-        cover: './img/cover/ball-cover.png',
       },
     ],
   },

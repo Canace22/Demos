@@ -2,12 +2,8 @@ import * as PIXI from 'pixi.js';
 
 export default class CreateDragThing {
   constructor({
-    dom,
-    img,
-    pos,
-    dragData,
-    bg,
-  }) {
+ dom, img, pos, dragData, bg 
+}) {
     const texture = [];
     const bunny = [];
     this.dom = dom;

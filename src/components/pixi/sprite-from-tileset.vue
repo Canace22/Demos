@@ -39,8 +39,31 @@
 
 					let rocket = new Sprite(texture);
 
+					const gameLoop = delta => {
+						//Update the current game state:
+						state(delta);
+					};
+
+					const play = delta => {
+						if (rocket.x > app.renderer.width) {
+							rocket.x = 0;
+							rocket.y = 0;
+							return;
+						}
+						rocket.vx = 2;
+						rocket.vy = 1;
+						rocket.x += rocket.vx;
+						rocket.y += rocket.vy;
+					};
+
 					rocket.position.set(32, 32);
+					rocket.vx = 0;
+					rocket.vy = 0;
+
 					app.stage.addChild(rocket);
+					let state = play;
+					// 移动火箭
+					app.ticker.add(delta => gameLoop(delta));
 					loader.reset();
 				});
 			}

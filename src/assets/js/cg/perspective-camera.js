@@ -1,4 +1,4 @@
-import Ray3 from "assets/js/cg/ray3";
+import Ray3 from 'assets/js/cg/ray3';
 
 class PerspectiveCamera {
   constructor(eye, front, up, fov) {
@@ -23,7 +23,7 @@ class PerspectiveCamera {
       this.front
         .add(r)
         .add(u)
-        .normalize()
+        .normalize(),
     );
   }
 }
