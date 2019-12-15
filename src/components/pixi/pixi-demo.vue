@@ -1,5 +1,8 @@
 <template>
-	<div id="leaf-wrap" class="leaf-wrap"></div>
+	<div id="leaf-wrap" class="leaf-wrap">
+		<button @click="add">添加精灵</button>
+		<button @click="remove">移除精灵</button>
+	</div>
 </template>
 
 <script>
@@ -7,20 +10,56 @@
 
 	export default {
 		name: "pixi",
+		data() {
+			return {
+				cat: null,
+				imgArr: [],
+				dragData: [],
+				pos: [],
+				bunny: [],
+				rotation: 0,
+				visible: true
+			};
+		},
 		mounted() {
-			this.createPixi();
+			const el = document.getElementById("leaf-wrap");
+			this.cat = new CreateDragThing({
+				dom: el,
+				bg: 0x000
+			});
+			this.cat.initView();
 		},
 		methods: {
-			createPixi() {
-				const el = document.getElementById("leaf-wrap");
-				const cat = new CreateDragThing({
-					dom: el,
-					img: ["./img/cat.png", "./img/cat.png", "./img/cat.png"],
-					pos: [{ x: 183, y: 185 }, { x: 283, y: 285 }, { x: 383, y: 385 }],
-					dragData: [0, 1],
-					bg: 0x000
+			addSprite(cat) {
+				// img: this.imgArr,
+				// 	pos: [{ x: 183, y: 185 }, { x: 283, y: 285 }, { x: 383, y: 385 }],
+				this.imgArr.push(cat.img);
+				this.pos.push(cat.pos);
+				this.dragData.push(cat.dragData);
+				const config = {
+					img: this.imgArr,
+					pos: this.pos,
+					dragData: this.dragData
+				};
+				this.cat.createBunny(config).then(res => {
+					this.bunny = res;
+
+					console.log(this.bunny);
 				});
-				cat.initDrag();
+			},
+			add() {
+				const cat = {
+					img: "./img/cat.png",
+					pos: { x: 183, y: 185 },
+					dragData: -1
+				};
+				this.cat.createSingleBunny(cat).then(res => {
+					res.transform.rotation = this.rotation;
+					res.visible = this.visible;
+				});
+			},
+			remove() {
+				this.visible = false
 			}
 		}
 	};

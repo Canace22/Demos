@@ -34,6 +34,7 @@
 				}).load((loader, resources) => {
 					let dungeon, explorer, treasure, door, id;
 					const things = resources["treasure"].textures;
+
 					// 墙纸精灵创建并显示在画布上
 					dungeon = new Sprite(things["dungeon.png"]);
 					app.stage.addChild(dungeon);

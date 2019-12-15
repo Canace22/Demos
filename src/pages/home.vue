@@ -212,6 +212,7 @@ export default {
     background-color: #fbebd7;
     margin: auto;
     border-radius: 8px;
+    outline: none;
     .close {
       position: absolute;
       top: 10px;
