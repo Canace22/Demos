@@ -1,0 +1,735 @@
+{
+  "frames": {
+    "bicycle-lamp.png": {
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 81,
+        "h": 81
+      }
+    },
+    "cistern.png": {
+      "frame": {
+        "x": 81,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 81,
+        "h": 81
+      }
+    },
+    "color-palette.png": {
+      "frame": {
+        "x": 162,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 81,
+        "h": 81
+      }
+    },
+    "color-panel.png": {
+      "frame": {
+        "x": 243,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 81,
+        "h": 81
+      }
+    },
+    "concave-glass.png": {
+      "frame": {
+        "x": 324,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 81,
+        "h": 81
+      }
+    },
+    "concave-mirror.png": {
+      "frame": {
+        "x": 405,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 81,
+        "h": 81
+      }
+    },
+    "convex-glass.png": {
+      "frame": {
+        "x": 0,
+        "y": 81,
+        "w": 81,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 81,
+        "h": 81
+      }
+    },
+    "convex-mirror.png": {
+      "frame": {
+        "x": 81,
+        "y": 81,
+        "w": 81,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 81,
+        "h": 81
+      }
+    },
+    "diffuse-mirror.png": {
+      "frame": {
+        "x": 162,
+        "y": 81,
+        "w": 81,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 81,
+        "h": 81
+      }
+    },
+    "fold-paper-board.png": {
+      "frame": {
+        "x": 243,
+        "y": 81,
+        "w": 81,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 81,
+        "h": 81
+      }
+    },
+    "glass-block.png": {
+      "frame": {
+        "x": 324,
+        "y": 81,
+        "w": 81,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 81,
+        "h": 81
+      }
+    },
+    "half-round-glass.png": {
+      "frame": {
+        "x": 405,
+        "y": 81,
+        "w": 81,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 81,
+        "h": 81
+      }
+    },
+    "laser-demonstrator.png": {
+      "frame": {
+        "x": 0,
+        "y": 162,
+        "w": 81,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 81,
+        "h": 81
+      }
+    },
+    "light-intensity-meter.png": {
+      "frame": {
+        "x": 81,
+        "y": 162,
+        "w": 81,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 81,
+        "h": 81
+      }
+    },
+    "optical-11.png": {
+      "frame": {
+        "x": 162,
+        "y": 162,
+        "w": 81,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 81,
+        "h": 81
+      }
+    },
+    "optical-12.png": {
+      "frame": {
+        "x": 243,
+        "y": 162,
+        "w": 81,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 81,
+        "h": 81
+      }
+    },
+    "optical-14.png": {
+      "frame": {
+        "x": 324,
+        "y": 162,
+        "w": 81,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 81,
+        "h": 81
+      }
+    },
+    "optical-26.png": {
+      "frame": {
+        "x": 405,
+        "y": 162,
+        "w": 81,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 81,
+        "h": 81
+      }
+    },
+    "optical-32.png": {
+      "frame": {
+        "x": 0,
+        "y": 243,
+        "w": 81,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 81,
+        "h": 81
+      }
+    },
+    "optical-9.png": {
+      "frame": {
+        "x": 81,
+        "y": 243,
+        "w": 81,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 81,
+        "h": 81
+      }
+    },
+    "optical-bench.png": {
+      "frame": {
+        "x": 162,
+        "y": 243,
+        "w": 81,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 81,
+        "h": 81
+      }
+    },
+    "optical-fiber.png": {
+      "frame": {
+        "x": 243,
+        "y": 243,
+        "w": 81,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 81,
+        "h": 81
+      }
+    },
+    "optical-thermometer.png": {
+      "frame": {
+        "x": 324,
+        "y": 243,
+        "w": 81,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 81,
+        "h": 81
+      }
+    },
+    "periscope.png": {
+      "frame": {
+        "x": 405,
+        "y": 243,
+        "w": 81,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 81,
+        "h": 81
+      }
+    },
+    "plane-mirror.png": {
+      "frame": {
+        "x": 0,
+        "y": 324,
+        "w": 81,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 81,
+        "h": 81
+      }
+    },
+    "plane-mirror-imaging.png": {
+      "frame": {
+        "x": 81,
+        "y": 324,
+        "w": 81,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 81,
+        "h": 81
+      }
+    },
+    "plate-wit-hole.png": {
+      "frame": {
+        "x": 162,
+        "y": 324,
+        "w": 81,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 81,
+        "h": 81
+      }
+    },
+    "red-ray-pen.png": {
+      "frame": {
+        "x": 243,
+        "y": 324,
+        "w": 81,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 81,
+        "h": 81
+      }
+    },
+    "refraction-chopsticks.png": {
+      "frame": {
+        "x": 324,
+        "y": 324,
+        "w": 81,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 81,
+        "h": 81
+      }
+    },
+    "righttriple-prism.png": {
+      "frame": {
+        "x": 405,
+        "y": 324,
+        "w": 81,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 81,
+        "h": 81
+      }
+    },
+    "rule.png": {
+      "frame": {
+        "x": 0,
+        "y": 405,
+        "w": 81,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 81,
+        "h": 81
+      }
+    },
+    "ruler.png": {
+      "frame": {
+        "x": 81,
+        "y": 405,
+        "w": 81,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 81,
+        "h": 81
+      }
+    },
+    "screen.png": {
+      "frame": {
+        "x": 162,
+        "y": 405,
+        "w": 81,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 81,
+        "h": 81
+      }
+    },
+    "triple-prism.png": {
+      "frame": {
+        "x": 243,
+        "y": 405,
+        "w": 81,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 81,
+        "h": 81
+      }
+    },
+    "water-optical-fiber.png": {
+      "frame": {
+        "x": 324,
+        "y": 405,
+        "w": 81,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 81,
+        "h": 81
+      }
+    },
+    "white-ray-pen.png": {
+      "frame": {
+        "x": 405,
+        "y": 405,
+        "w": 81,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 81,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 81,
+        "h": 81
+      }
+    }
+  },
+  "meta": {
+    "app": "http://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "optical.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 486,
+      "h": 486
+    },
+    "scale": "1"
+  }
+}

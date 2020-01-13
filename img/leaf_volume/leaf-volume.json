@@ -1,0 +1,75 @@
+{
+  "frames": {
+    "Bitmap 13.png": {
+      "frame": { "x": 2, "y": 2, "w": 489, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 489, "h": 250 },
+      "sourceSize": { "w": 489, "h": 250 }
+    },
+    "tool/正确.png": {
+      "frame": { "x": 947, "y": 2, "w": 18, "h": 12 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 18, "h": 12 },
+      "sourceSize": { "w": 18, "h": 12 }
+    },
+    "tool/选框.png": {
+      "frame": { "x": 958, "y": 1043, "w": 24, "h": 24 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 24, "h": 24 },
+      "sourceSize": { "w": 24, "h": 24 }
+    },
+    "tool/错误.png": {
+      "frame": { "x": 984, "y": 1043, "w": 18, "h": 18 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 18, "h": 18 },
+      "sourceSize": { "w": 18, "h": 18 }
+    },
+    "tool/50ml量筒.png": {
+      "frame": { "x": 493, "y": 2, "w": 299, "h": 893 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 299, "h": 893 },
+      "sourceSize": { "w": 299, "h": 893 }
+    },
+    "tool/樱桃.png": {
+      "frame": { "x": 865, "y": 2, "w": 80, "h": 144 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 144 },
+      "sourceSize": { "w": 80, "h": 144 }
+    },
+    "tool/桑葚.png": {
+      "frame": { "x": 794, "y": 2, "w": 69, "h": 57 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 69, "h": 57 },
+      "sourceSize": { "w": 69, "h": 57 }
+    },
+    "tool/草莓.png": {
+      "frame": { "x": 2, "y": 897, "w": 118, "h": 144 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 118, "h": 144 },
+      "sourceSize": { "w": 118, "h": 144 }
+    },
+    "tool/表格.png": {
+      "frame": { "x": 2, "y": 1043, "w": 954, "h": 244 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 954, "h": 244 },
+      "sourceSize": { "w": 954, "h": 244 }
+    }
+  },
+  "meta": {
+    "app": "http://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "volume.png",
+    "format": "RGBA8888",
+    "size": { "w": 1024, "h": 2048 },
+    "scale": "1"
+  }
+}
