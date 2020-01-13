@@ -23,6 +23,7 @@ const components = {
   Intersection: () => import('components/canvas/intersection'),
   ThreePrimaryColor: () => import('components/canvas/three-primary-colors'),
   FreeRect: () => import('components/canvas/free-rect'),
+  Move: () => import('components/other/move'),
 };
 
 export default components;

@@ -138,6 +138,7 @@ const config = [
         cover: './img/2.png',
       },
       { title: '时钟', name: 'Clock', cover: './img/4.png' },
+      { title: '自由拖动', name: 'Move', cover: './img/4.png' },
     ],
   },
 ];

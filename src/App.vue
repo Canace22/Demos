@@ -8,6 +8,7 @@
 <script>
 	import Home from "pages/home.vue";
 	import Skeleton from "components/skeleton/skeleton";
+
 	export default {
 		name: "app",
 		components: {
