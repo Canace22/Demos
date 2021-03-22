@@ -7,7 +7,6 @@ on:
 
 jobs:
   build:
-    name: build Vue
     runs-on: ubuntu-latest
 
     steps:
