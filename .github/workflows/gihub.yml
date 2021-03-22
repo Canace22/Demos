@@ -1,12 +1,15 @@
-name: build site
-runs-on: ubuntu-latest
-on:
+name: build site 
+
+on:              
   push:
     branches:
       - master
 
 jobs:
   build:
+    name: build Vue
+    runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
@@ -14,9 +17,8 @@ jobs:
         run: |
           yarn
           yarn build
-  deploy:
-    steps:
-      - uses: peaceiris/actions-gh-pages@v3
+      - name: deploy
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
