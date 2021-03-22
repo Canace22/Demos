@@ -1,0 +1,21 @@
+name: build site
+
+on:
+  push:
+    branches:    
+      - master
+
+jobs:
+  build:
+    name: build site
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: build code
+        run: yarn && yarn build
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
