@@ -1,5 +1,6 @@
 <template>
-  <div class="video-wrap">
+  <div class="container">
+    <div class="video-wrap">
     <video
       id="videoElement"
       class="video"
@@ -18,6 +19,7 @@
       />
       <img :src="fullSrc" @click="fullScreen" />
     </div>
+  </div>
   </div>
 </template>
 

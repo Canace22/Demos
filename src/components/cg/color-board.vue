@@ -1,5 +1,6 @@
 <template>
-	<div class="color-container">
+	<div class="container">
+    <div class="color-container">
 		<div class="color-panel">
 			<div>
 				<span class="color-title">固定色盘：</span>
@@ -22,6 +23,7 @@
 		</div>
 		<canvas width="256" height="256" id="testCanvas"></canvas>
 	</div>
+  </div>
 </template>
 
 <script>

@@ -1,5 +1,6 @@
 <template>
-	<div>
+	<div class="container">
+    <div>
 		<canvas ref="canvas" width="500" height="500" id="light"></canvas>
 		<img
 			style="display:none"
@@ -9,6 +10,7 @@
 			height="227"
 		/>
 	</div>
+  </div>
 </template>
 
 <script>

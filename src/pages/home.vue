@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="home-container">
     <m-header :lists="lists" @change="navSelect" />
     <article :style="{ height: h }" class="article">
       <m-aside :list="lists" @change="navSelect"/>
@@ -49,7 +49,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.container {
+.home-container {
   width: 100vw;
   height: 100vh;
 }
