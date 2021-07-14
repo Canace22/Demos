@@ -1,5 +1,6 @@
 <template>
-  <div class="dropDown-wrap" tabindex="1" @blur="hidden">
+  <div class="container">
+    <div class="dropDown-wrap" tabindex="1" @blur="hidden">
     <div class="dropDown" @click="isDropDown=!isDropDown">
       {{selected.name}}
       <svg class="arrow-right" role="presentation" v-show="isIcon">
@@ -16,6 +17,7 @@
         @click="selectItem(item)"
       >{{item.name}}</div>
     </div>
+  </div>
   </div>
 </template>
 

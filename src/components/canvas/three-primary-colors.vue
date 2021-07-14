@@ -1,5 +1,7 @@
 <template>
-	<div ref="colorCircle"></div>
+	<div class="container">
+    <div ref="colorCircle"></div>
+  </div>
 </template>
 
 <script>
