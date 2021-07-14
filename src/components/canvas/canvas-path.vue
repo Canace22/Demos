@@ -1,9 +1,11 @@
 <template>
-  <div id="wrap" class="wrap">
+  <div class="container">
+    <div id="wrap" class="wrap">
     <canvas id="canvas" class="canvas" width="483" height="486"></canvas>
     <img style="display:none" ref="img" class="pen" :src="pen" />
     <img style="display:none" ref="leaf" class="leaf" :src="leaf" />
     <button @click="drawPolygon">start</button>
+  </div>
   </div>
 </template>
 

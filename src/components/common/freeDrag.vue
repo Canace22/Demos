@@ -1,7 +1,9 @@
 <template>
-  <div class="wrap">
+ <div class="container">
+    <div class="wrap">
     <div class="item"></div>
   </div>
+ </div>
 </template>
 
 <script>

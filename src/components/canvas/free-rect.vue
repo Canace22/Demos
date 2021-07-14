@@ -1,5 +1,7 @@
 <template>
-	<div ref="freeRect"></div>
+	<div class="container">
+    <div ref="freeRect"></div>
+  </div>
 </template>
 
 <script>
@@ -21,8 +23,8 @@
 		mounted() {
 			const dom = this.$refs.freeRect;
 			this.app = new PIXI.Application({
-				width: window.innerWidth,
-				height: window.innerHeight,
+				width: window.innerWidth/2,
+				height: window.innerHeight/2,
 				transparent: true
 			});
 			dom.appendChild(this.app.view);
@@ -270,4 +272,6 @@
 	};
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@import url('~assets/scss/container.scss');
+</style>

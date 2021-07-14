@@ -1,5 +1,7 @@
 <template>
-	<div ref="blendingWrap"></div>
+	<div class="container">
+    <div ref="blendingWrap"></div>
+  </div>
 </template>
 
 <script>

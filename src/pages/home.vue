@@ -54,37 +54,24 @@
 
 <script>
 import config from 'assets/js/config';
-import components from 'assets/js/getImport';
+import MHeader from '@/common/header';
+import MAside from '@/common/aside';
 /* eslint-disable no-unused-expressions */
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String,
+  components: {
+    MHeader,
+    MAside,
   },
-  components,
   data() {
     return {
-      lists: config,
-      isSelect: 0,
-      currentTab: 'Clock',
+      lists: [...config],
+      contents: config[0].contents,
       isTab: false,
-      config: {
-        type: 'mp4',
-        url: 'https://ebag-lab.ebag.readboy.com/phonics/videos/A.mp4',
-      },
-      fullSrc: './img/fullScreen.png',
-      stopSrc: './img/pause.png',
-      playSrc: './img/play.png',
-      type: 2,
-      closeSrc: './img/close.png',
     };
   },
   computed: {
     h() {
       return `${window.innerHeight - 72}px`;
-    },
-    contents() {
-      return this.lists[this.isSelect].contents;
     },
   },
   methods: {
@@ -98,6 +85,9 @@ export default {
       this.lists.forEach((element, i) => {
         i === index ? (this.lists[i].isActive = index) : (this.lists[i].isActive = -1);
       });
+    },
+    navSelect(item) {
+      this.contents = item;
     },
   },
 };

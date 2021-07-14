@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <canvas width="500" height="500" id="depthCanvas"></canvas>
   </div>
 </template>
