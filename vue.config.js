@@ -6,7 +6,6 @@ const resolve = dir => path.join(__dirname, dir);
 module.exports = {
   // 基本路径
   publicPath: './',
-  lintOnSave: false,
   configureWebpack: {
     plugins: [
       new SkeletonWebpackPlugin({

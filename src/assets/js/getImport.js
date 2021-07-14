@@ -24,6 +24,9 @@ const components = {
   ThreePrimaryColor: () => import('components/canvas/three-primary-colors'),
   FreeRect: () => import('components/canvas/free-rect'),
   Move: () => import('components/other/move'),
+  Poly: () => import('components/canvas/poly'),
+  Carousels: () => import('components/animate/carousels'),
+  CarouselsCard: () => import('components/animate/carousel-card'),
 };
 
 export default components;

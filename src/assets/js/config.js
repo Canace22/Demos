@@ -1,13 +1,45 @@
 const config = [
   {
-    name: 'canvas绘图',
-    icon: './img/line.svg',
+    name: '动画',
+    icon: './img/2d.svg',
     isActive: 0,
     contents: [
       {
+        title: '轮播图——卡片',
+        name: 'CarouselsCard',
+        cover: './img/cover/strokeAnimate.png',
+      },
+      {
+        title: '轮播图',
+        name: 'Carousels',
+        cover: './img/cover/strokeAnimate.png',
+      },
+      {
+        title: '动态绳索',
+        name: 'Easing',
+        cover: './img/cover/strokeAnimate.png',
+      },
+      {
+        title: 'battary',
+        name: 'Battary',
+        cover: './img/cover/countAnimation.png',
+      },
+    ],
+  },
+  {
+    name: 'canvas绘图',
+    icon: './img/line.svg',
+    isActive: -1,
+    contents: [
+      {
+        title: '画叶片轮廓',
+        name: 'Poly',
+        cover: './img/cover/primary-color.png',
+      },
+      {
         title: '自由伸缩的矩形',
         name: 'FreeRect',
-        cover: './img/cover/primary-color.png',
+        cover: './img/cover/resize.png',
       },
       {
         title: '光的三原色',
@@ -90,23 +122,6 @@ const config = [
         title: '球体',
         name: 'Ball',
         cover: './img/cover/ball-cover.png',
-      },
-    ],
-  },
-  {
-    name: '动画',
-    icon: './img/2d.svg',
-    isActive: -1,
-    contents: [
-      {
-        title: '动态绳索',
-        name: 'Easing',
-        cover: './img/cover/strokeAnimate.png',
-      },
-      {
-        title: 'battary',
-        name: 'Battary',
-        cover: './img/cover/countAnimation.png',
       },
     ],
   },
