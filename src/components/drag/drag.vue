@@ -1,11 +1,9 @@
 <template>
-  <div>
-    <draggable class="drag-wrap" v-model="items" @change="updateItems">
-      <div class="item" v-for="item in items" :key="item.id" @dragstart="dragstart" @dragend="dragend" @drop="drop">
-        <slot name="item" :item="item"></slot>
-      </div>
-    </draggable>
-  </div>
+  <draggable :handle="handle" class="drag-wrap" :class="slotClass" v-model="items" @change="updateItems">
+    <div class="item" :class="{'can-drag':handle!=='.none'}" v-for="item in items" :key="item.id" @dragstart="dragstart" @dragend="dragend" @drop="drop">
+      <slot name="item" :item="item"></slot>
+    </div>
+  </draggable>
 </template>
 
 <script>
@@ -27,6 +25,11 @@ export default {
         const res = items();
         return res;
       },
+    },
+    slotClass: Array,
+    handle: {
+      type: String,
+      default: '.none',
     },
   },
   components: {
@@ -72,12 +75,12 @@ export default {
     color: #009cff;
     border: 2px solid transparent;
     margin: 10px;
-    cursor: pointer;
+  }
+  .can-drag:hover {
+    border: 2px dotted #009cff;
+    cursor: move;
     .label {
-      cursor: pointer;
-    }
-    &:hover {
-      border: 2px dotted #009cff;
+      cursor: move;
     }
   }
   .select {
@@ -86,7 +89,7 @@ export default {
   }
   .move-in {
     @extend .select;
-    animation: scale-item linear 0.5s;
+    animation: scale-item ease-in-out 0.5s;
   }
 }
 @keyframes scale-item {

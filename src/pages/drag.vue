@@ -1,11 +1,22 @@
 <template>
   <div>
-    <drag-list @changeItems="changeItems">
+    <drag-list handle=".item" @changeItems="changeItems">
       <template #item="{item}">
         <label class="label" for="item.id">{{ item.name }}: </label>
-        <input class="input" type="text" v-model="list[item.name]">
+        <input class="input" type="text" v-model="list[item.name]" />
       </template>
     </drag-list>
+    <section class="list-wrap">
+      <drag-list :handle="handle" :slot-class="['drag-list']" @changeItems="changeItems">
+        <template #item="{item}">
+          <span>{{ item.name }}</span>
+        </template>
+      </drag-list>
+      <div class="btn-group">
+        <button v-show="!isSort" @click="changeSortStatus(1)">新建排序</button>
+        <button v-show="isSort" @click="changeSortStatus(0)">保存排序</button>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -20,49 +31,41 @@ export default {
   data() {
     return {
       list: Object.create(null),
+      isSort: false,
+      handle: '.none',
     };
   },
   methods: {
     changeItems(val) {
       console.log('items', val);
     },
+    changeSortStatus(val) {
+      console.log('我被点击了！', val);
+      this.isSort = !!val;
+      console.log(this.isSort);
+      this.handle = this.isSort ? '.item' : '.none';
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.drag-wrap {
-  display: flex;
-  flex-wrap: wrap;
-  .item {
-    text-align: center;
-    // width: 200px;
-    line-height: 100px;
-    color: #009cff;
-    font-size: 40px;
-    font-weight: 700;
-    padding: 20px;
-    border: 2px solid transparent;
-    margin: 10px;
-    cursor: pointer;
-    &:hover {
-      border: 2px dotted #009cff;
-    }
-  }
-  .select {
-    background: #009cff;
-    color: #fff;
-  }
-  .move-in {
-    animation: scale-item linear 0.5s;
+.drag-list {
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: fit-content;
+  height: 50vh;
+  background: #fff;
+  overflow: auto;
+  margin: 10px 0;
+  border: 1px solid #eee;
+  /deep/.item {
+    line-height: 30px;
+    margin: 10px 0;
   }
 }
-@keyframes scale-item {
-  from {
-    transform: translate(-10px, 10px);
-  }
-  to {
-    transform: translate(0, 0);
-  }
+.btn-group {
+  position: absolute;
+  bottom: 0;
 }
 </style>
