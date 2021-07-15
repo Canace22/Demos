@@ -51,6 +51,7 @@ export default {
 
 <style lang="scss" scoped>
 .drag-list {
+  position: relative;
   flex-direction: column;
   flex-wrap: nowrap;
   width: fit-content;

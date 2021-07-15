@@ -101,7 +101,6 @@ const config = [
   {
     name: '3D',
     icon: './img/3D.svg',
-    isActive: -1,
     contents: [
       {
         title: '魔方',
@@ -134,13 +133,13 @@ const config = [
   {
     name: '拖动',
     icon: './img/drag.svg',
-    isActive: -1,
+
     contents: [{ title: '列表拖拽', name: 'DragList', cover: './img/3.png' }],
   },
   {
     name: '其他',
     icon: './img/other-icon.png',
-    isActive: -1,
+
     contents: [
       {
         title: 'div 模拟 input placeholder',
