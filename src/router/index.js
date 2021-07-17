@@ -1,20 +1,20 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-import components from "@/assets/js/getImport";
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import components from '@/assets/js/getImport';
 
 Vue.use(VueRouter);
 
-const routes = [{ path: "/", component: () => import("@/pages/home") }];
+const routes = [{ path: '/', component: () => import('@/pages/home.vue') }];
 const keys = Object.keys(components);
-keys.forEach(el => {
+keys.forEach((el) => {
   routes.push({
-    path: '/' + el.toLowerCase(),
-    component: components[el]
+    path: `/${el.toLowerCase()}`,
+    component: components[el],
   });
 });
 
 const router = new VueRouter({
-  routes
+  routes,
 });
 
 export default router;
