@@ -8,21 +8,21 @@
           :class="{ isActive: item.isActive === index }"
           v-for="(item, index) in lists"
           :key="index"
-          @click="navSelect(index)"
+          @click="navSelect(item, index)"
         >
           <img class="icon" :src="item.icon" />
           <span>{{ item.name }}</span>
         </section>
       </nav>
     </header>
-    <article :style="{ height: h }" class="article">
+    <div class="content">
       <aside class="aside">
         <section
           class="item"
           :class="{ isActive: item.isActive === index }"
           v-for="(item, index) in lists"
           :key="index"
-          @click="navSelect(index)"
+          @click="navSelect(item, index)"
         >
           <img class="icon" :src="item.icon" />
           <span>{{ item.name }}</span>
@@ -35,33 +35,14 @@
         </section>
         <section class="none" v-for="(item, index) in 2" :key="index + 'aaa'"></section>
       </main>
-    </article>
-    <article v-if="isTab" class="modal-wrap" @click.self="isTab = false">
-      <section class="modal">
-        <img class="close" :src="closeSrc" @click="isTab = false" />
-        <component
-          v-bind:is="currentTab"
-          :config="config"
-          :fullSrc="fullSrc"
-          :stopSrc="stopSrc"
-          :playSrc="playSrc"
-          :type="type"
-        ></component>
-      </section>
-    </article>
+    </div>
   </div>
 </template>
 
 <script>
 import config from 'assets/js/config';
-import MHeader from '@/common/header';
-import MAside from '@/common/aside';
-/* eslint-disable no-unused-expressions */
+
 export default {
-  components: {
-    MHeader,
-    MAside,
-  },
   data() {
     return {
       lists: [...config],
@@ -69,25 +50,21 @@ export default {
       isTab: false,
     };
   },
-  computed: {
-    h() {
-      return `${window.innerHeight - 72}px`;
-    },
-  },
   methods: {
     openTab(name) {
-      this.currentTab = name;
-      this.isTab = true;
+      const url = `${window.location.href}${name.toLowerCase()}`;
+      window.open(url);
     },
-    navSelect(index, name) {
+    navSelect(item, index) {
       this.isSelect = index;
-
       this.lists.forEach((element, i) => {
-        i === index ? (this.lists[i].isActive = index) : (this.lists[i].isActive = -1);
+        if (i === index) {
+          this.$set(this.lists[i], 'isActive', index);
+        } else {
+          this.$set(this.lists[i], 'isActive', -1);
+        }
+        this.contents = item.contents;
       });
-    },
-    navSelect(item) {
-      this.contents = item;
     },
   },
 };
@@ -100,8 +77,9 @@ export default {
   src: url(../../public/font/font.ttf);
 }
 .container {
-  width: 100vw;
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 .header {
   width: 100%;
@@ -120,91 +98,64 @@ export default {
     display: none;
   }
 }
-.article {
-  width: 100%;
-  .aside {
-    position: absolute;
-    left: 0;
-    width: 20%;
-    height: inherit;
-    background: #f3cb81;
-    .item {
-      display: flex;
-      align-items: center;
-      height: 2.5rem;
-      line-height: 2.5rem;
-      color: #781e02;
-      font-size: 1.25rem;
-      font-weight: 600;
-      padding: 0.625rem;
-      cursor: pointer;
-      .icon {
-        margin-right: 10px;
-      }
-    }
-  }
-  .main {
+.content {
+  flex: 1;
+  height: 100%;
+}
+.aside {
+  position: absolute;
+  left: 0;
+  width: 20%;
+  height: inherit;
+  background: #f3cb81;
+  .item {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    height: 100%;
-    padding: 1.25rem;
-    margin-left: 20%;
-    overflow-y: auto;
-    .card {
-      width: 25rem;
-      height: 18.75rem;
-      background: #fff;
-      margin: 0.625rem;
-      box-shadow: 0px 0px 15px rgba(19, 18, 18, 0.171);
-      .title {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 20%;
-        color: #781e02;
-        font-weight: 600;
-      }
-      .cover {
-        width: 100%;
-        height: 80%;
-      }
-    }
-    .none {
-      width: 25rem;
-      height: 0;
+    align-items: center;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    color: #781e02;
+    font-size: 1.25rem;
+    font-weight: 600;
+    padding: 0.625rem;
+    cursor: pointer;
+    .icon {
+      margin-right: 10px;
     }
   }
 }
-.modal-wrap {
-  position: absolute;
-  top: 0;
-  left: 0;
+.main {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  background: #1f1e1e93;
-  .modal {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80vw;
-    height: 95vh;
-    // background-color: #fbebd7;
-    background: linear-gradient(90deg, #d4b00c, #967b05);
-    margin: auto;
-    border-radius: 8px;
-    outline: none;
-    .close {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      cursor: pointer;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  height: calc(100vh - 4.5rem);
+  padding: 1.25rem;
+  margin-left: 20%;
+  overflow-y: auto;
+  box-sizing: border-box;
+  .card {
+    width: 25rem;
+    height: 18.75rem;
+    background: #fff;
+    margin: 0.625rem;
+    box-shadow: 0px 0px 15px rgba(19, 18, 18, 0.171);
+    .title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 20%;
+      color: #781e02;
+      font-weight: 600;
     }
+    .cover {
+      width: 100%;
+      height: 80%;
+      background: #fbebd7;
+    }
+  }
+  .none {
+    width: 25rem;
+    height: 0;
   }
 }
 .isActive {

@@ -21,20 +21,20 @@ export default {
   props: {
     lists: {
       type: Array,
-      default: []
-    }
+      default: () => [],
+    },
   },
   data() {
     return {
-      isActive: 0
+      isActive: 0,
     };
   },
   methods: {
     changeIndex(item, index) {
       this.isActive = index;
-      this.$emit("change", item.contents);
-    }
-  }
+      this.$emit('change', item.contents);
+    },
+  },
 };
 </script>
 
