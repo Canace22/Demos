@@ -16,7 +16,7 @@ const components = {
   PixiSprite: () => import('components/pixi/sprite-from-tileset.vue'),
   PixiData: () => import('components/pixi/sprite-from-data.vue'),
   LeafVolumn: () => import('components/pixi/leaf-volumn.vue'),
-  Sphere: () => import('components/3d/sphere.vue'),
+  Sphere: () => import('components/sphere.vue'),
   Light: () => import('components/cg/light.vue'),
   Cube: () => import('components/3d/cube.vue'),
   FunctionMath: () => import('components/cg/function-math.vue'),
@@ -27,6 +27,7 @@ const components = {
   Poly: () => import('components/canvas/poly.vue'),
   Carousels: () => import('components/animate/carousels.vue'),
   CarouselsCard: () => import('components/animate/carousel-card.vue'),
+  CodeMirror: () => import('components/other/code-mirror.vue'),
 };
 
 export default components;

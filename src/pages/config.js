@@ -21,9 +21,34 @@ const covers = {
 };
 const config = [
   {
+    name: '其他',
+    icon: require('@/assets/images/other-icon.png'),
+    isActive: 0,
+    contents: [
+      {
+        title: 'codemirror',
+        name: 'CodeMirror',
+        cover: covers.default,
+      },
+      {
+        title: 'div 模拟 input placeholder',
+        name: 'PlaceHolder',
+        cover: covers.default,
+      },
+      {
+        title: '列表控件',
+        name: 'FormEl',
+        cover: covers.default,
+      },
+      { title: '时钟', name: 'Clock', cover: covers.default },
+      { title: '自由拖动', name: 'Move', cover: covers.default },
+      { title: '列表拖拽', name: 'DragList', cover: covers.default },
+    ],
+  },
+  {
     name: 'webGL',
     icon: require('@/assets/images/line.svg'),
-    isActive: 0,
+    isActive: -1,
     contents: [
       // {
       //   title: '魔方',
@@ -31,7 +56,7 @@ const config = [
       //   cover: './img/cover/cover-sphere.png',
       // },
       {
-        title: '球体（1）',
+        title: 'babylonjs 画球体',
         name: 'Sphere',
         cover: covers['cover-sphere'],
       },
@@ -144,25 +169,6 @@ const config = [
     icon: require('@/assets/images/media.svg'),
     isActive: -1,
     contents: [{ title: '视频播放器', name: 'Video', cover: covers.default }],
-  },
-  {
-    name: '其他',
-    icon: require('@/assets/images/other-icon.png'),
-    contents: [
-      {
-        title: 'div 模拟 input placeholder',
-        name: 'PlaceHolder',
-        cover: covers.default,
-      },
-      {
-        title: '列表控件',
-        name: 'FormEl',
-        cover: covers.default,
-      },
-      { title: '时钟', name: 'Clock', cover: covers.default },
-      { title: '自由拖动', name: 'Move', cover: covers.default },
-      { title: '列表拖拽', name: 'DragList', cover: covers.default },
-    ],
   },
 ];
 

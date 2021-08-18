@@ -10,14 +10,18 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "babylonjs": "^4.2.0",
+    "codemirror": "^5.62.2",
     "core-js": "^2.6.5",
     "file-saver": "^2.0.2",
     "flv.js": "^1.5.0",
     "interactjs": "^1.4.0-rc.13",
     "paper": "^0.12.3",
     "pixi.js": "^5.2.0",
+    "shiki": "^0.9.6",
     "three": "^0.111.0",
     "vue": "^2.6.10",
+    "vue-codemirror": "^4.0.6",
     "vue-router": "^3.4.8",
     "vuedraggable": "^2.24.3"
   },
@@ -31,7 +35,6 @@
     "@vue/test-utils": "1.0.0-beta.29",
     "animejs": "^3.1.0",
     "babel-eslint": "^10.0.1",
-    "babylonjs": "^4.0.3",
     "chai": "^4.1.2",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",

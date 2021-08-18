@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import config from 'assets/js/config';
+import config from './config';
 
 export default {
   data() {
