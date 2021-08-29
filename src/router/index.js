@@ -1,20 +1,34 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import components from './getImport';
+import others from './Module/others';
+import webGL from './Module/web-gl';
+import animation from './Module/animation';
+import media from './Module/media';
 
 Vue.use(VueRouter);
 
-const routes = [{ path: '/', component: () => import('@/pages/home.vue') }];
-const keys = Object.keys(components);
-keys.forEach((el) => {
-  routes.push({
-    path: `/${el.toLowerCase()}`,
-    component: components[el],
-  });
-});
-
 const router = new VueRouter({
-  routes,
+  routes: [
+    {
+      path: '/',
+      component: () => import('@/pages/layout.vue'),
+      redirect: '/home',
+    },
+    {
+      path: '/home',
+      component: () => import('@/pages/layout.vue'),
+      children: [
+        {
+          path: '/',
+          component: () => import('@/pages/home.vue'),
+        },
+      ],
+    },
+    others,
+    webGL,
+    animation,
+    media,
+  ],
 });
 
 export default router;
