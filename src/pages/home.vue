@@ -1,42 +1,25 @@
 <template>
-  <div class="container">
-    <header class="header">
-      <h1 class="title">Demos</h1>
-      <nav class="nav">
-        <section
-          class="item"
-          :class="{ isActive: item.isActive === index }"
-          v-for="(item, index) in lists"
-          :key="index"
-          @click="navSelect(item, index)"
-        >
-          <img class="icon" :src="item.icon" />
-          <span>{{ item.name }}</span>
-        </section>
-      </nav>
-    </header>
-    <div class="content">
+   <div class="content">
       <aside class="aside">
         <section
           class="item"
-          :class="{ isActive: item.isActive === index }"
-          v-for="(item, index) in lists"
-          :key="index"
-          @click="navSelect(item, index)"
+          :class="{ isActive: curItem === key}"
+          v-for="(item,key) in asideData"
+          :key="key"
+          @click="navSelect(key)"
         >
           <img class="icon" :src="item.icon" />
           <span>{{ item.name }}</span>
         </section>
       </aside>
-      <main class="main">
-        <section class="card" v-for="(content, i) in contents" :key="i" @click="openTab(content.name)">
+      <main class="main-content">
+        <section class="card" v-for="(content, i) in contents" :key="i" @click="openTab(content.path)">
           <img class="cover" :src="content.cover" />
           <div class="title">{{ content.title }}</div>
         </section>
         <section class="none" v-for="(item, index) in 2" :key="index + 'aaa'"></section>
       </main>
     </div>
-  </div>
 </template>
 
 <script>
@@ -45,26 +28,25 @@ import config from './config';
 export default {
   data() {
     return {
-      lists: [...config],
-      contents: config[0].contents,
+      asideData: { ...config },
       isTab: false,
     };
   },
+  computed: {
+    curItem() {
+      return this.$route.query.tab || 'others';
+    },
+    contents() {
+      return config[this.curItem].contents;
+    },
+  },
   methods: {
-    openTab(name) {
-      const url = `${window.location.href}${name.toLowerCase()}`;
+    openTab(path) {
+      const url = `/#/${path}`;
       window.open(url);
     },
-    navSelect(item, index) {
-      this.isSelect = index;
-      this.lists.forEach((element, i) => {
-        if (i === index) {
-          this.$set(this.lists[i], 'isActive', index);
-        } else {
-          this.$set(this.lists[i], 'isActive', -1);
-        }
-        this.contents = item.contents;
-      });
+    navSelect(tab) {
+      this.$router.push({ path: '/home', query: { tab } });
     },
   },
 };
@@ -72,47 +54,18 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-@font-face {
-  font-family: title;
-  src: url(../../public/font/font.ttf);
-}
-.container {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-.header {
-  width: 100%;
-  height: 4.5rem;
-  line-height: 4.5rem;
-  background: #e9af40;
-  .title {
-    text-align: center;
-    width: 12.5rem;
-    font-family: title;
-    color: #781e02;
-    padding: 0 0.625rem;
-    margin: 0;
-  }
-  .nav {
-    display: none;
-  }
-}
 .content {
-  flex: 1;
+  display: flex;
   height: 100%;
 }
 .aside {
-  position: absolute;
-  left: 0;
   width: 20%;
-  height: inherit;
+  height: 100%;
   background: #f3cb81;
   .item {
     display: flex;
     align-items: center;
-    height: 2.5rem;
-    line-height: 2.5rem;
+    line-height: 3rem;
     color: #781e02;
     font-size: 1.25rem;
     font-weight: 600;
@@ -123,13 +76,13 @@ export default {
     }
   }
 }
-.main {
+.main-content {
+  flex: 1;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   height: calc(100vh - 4.5rem);
   padding: 1.25rem;
-  margin-left: 20%;
   overflow-y: auto;
   box-sizing: border-box;
   .card {
@@ -158,42 +111,14 @@ export default {
     height: 0;
   }
 }
-.isActive {
-  background-color: #fbebd7 !important;
-}
 @media (max-width: 1280px) {
   .aside {
     display: none;
   }
-  .main {
+  .main-content {
     width: 100%;
     margin-left: 0 !important;
     margin: auto;
-  }
-  .modal {
-    height: 85vh !important;
-  }
-  .header {
-    display: flex;
-    .nav {
-      display: flex !important;
-      align-items: center;
-      height: 100%;
-      margin: auto;
-      .item {
-        display: flex;
-        align-items: center;
-        height: 100%;
-        color: #781e02;
-        font-size: 1.25rem;
-        font-weight: 600;
-        padding: 0 1.25rem;
-        cursor: pointer;
-        .icon {
-          display: none;
-        }
-      }
-    }
   }
 }
 </style>
