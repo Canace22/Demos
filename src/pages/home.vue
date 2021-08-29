@@ -42,7 +42,7 @@ export default {
   },
   methods: {
     openTab(path) {
-      const url = `/#/${path}`;
+      const url = `${window.location.pathname}#/${path}`;
       window.open(url);
     },
     navSelect(tab) {
